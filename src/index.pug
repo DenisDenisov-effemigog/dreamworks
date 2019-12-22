@@ -1,0 +1,70 @@
+include ./mixins.pug
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title main page
+  body
+    .wrapper
+      .maincontent
+        header.header
+          .header__container.container
+            .header_top__block
+              .header_top__logo
+                .top__logo
+                +image('Logo.png', 'header__logo')
+              div.header_top__phone
+                div.wrapper_header_top__phone
+                  .top__phone
+                    .top__phone_design
+                      .phone_design__text Проектный отдел
+                      a(href="tel:+74997242810").phone_design__phone +7(499) 724 28 10
+                    .top__phone_dialer
+                      .phone_dialer__text Дилерский отдел
+                      div
+                        a(href="tel:+74997242810").phone_dialer__phone +7(499) 724 28 10
+                      div
+                        a(href="tel:+74999897393").phone_dialer__phone +7(499) 989 73 93
+                .top__help_link
+                  a(href="#").help__link Не дозвонились? Мы перезвоним!
+              .header_top__email
+                .top__email_btn
+                  button.email__button вход в личный кабинет
+                .top__email_links
+                  a(href="#").reguest__link Заявка на сотрудничество
+                  a(href="#").mail__link info@artisan-project.ru
+              .header_top__basket
+                .top__basket_icon
+                .top__basket_info
+                  .basket_info__text в вашей корзине
+                  .basket_info__product 9999 товаров
+                  .basket_info__price на 9 999 999 р.
+            .header_nav__block
+              +nav('header_nav', ["О компании", "Сотруднечество", "Плитка", "Сантехника", "Сопутсвующие товары", "Мерчендайзинг", "Транспортные услуги", "Контакты"])    
+            .header_search__block
+              form.search__block_form
+                label.search__form_label
+                  input(type="text").search__form_input
+                button(type="button").search__form_button.button найти
+                a(href="#").search__form_link Расширенный поиск
+        section.section.first_section
+          .container.first_section__container
+            .first_section__main
+              .main__slaider
+                .slider__active_section
+                  .active__section_pic
+                    +prew('slider')
+                  +button('active')
+                .slider__preview
+                  .preview__pic
+                    +image('1.jpg','preview__img')
+        section.second__section.section
+          .container.second_section__container
+            .timeline__main
+              h2.timeline__title.title Лента новостей
+              .news
+                +news('news')
+                +button('news')

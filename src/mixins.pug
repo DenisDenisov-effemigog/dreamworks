@@ -1,0 +1,45 @@
+mixin icon(name, className)
+  - var icon = require(`images/icons/${name}.svg`);
+  svg(class=className viewBox=icon.viewBox preserveAspectRatio="none")
+    use(xlink:href=icon.url)
+
+mixin image(path, className)
+  img(src=require(`images/content/${path}`) class=className)
+
+
+mixin nav(className, items, activeItem)
+  nav(class=`${className}`)
+    ul(class= `${className}__list`)
+      each item, index in items
+        li(class=`${className}__item` + ((index === activeItem) ? ` ${className}__item-active` : ""))
+          a(class=`${className}__link` href="#")= item
+
+mixin prew(className)
+  - var img = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"]
+      ul(class=`${className}__list`)
+        each item in img
+          li(class= `${className}__item`)
+            +image(`${item}` , `${className}__img`)
+
+
+mixin news(className)
+  - var items = ["12.jpg", "160.jpg", "DSC.jpg", "mak.jpg", "mult.jpg", "pod.jpg", "rol.jpg", "vul.jpg"]
+      ul(class=`${className}__list`)
+        each item in items
+          li(class= `${className}__item`)
+            div(class= `${className}__block`)
+              div(class= `${className}__pic`)
+                +image(`${item}` , `${className}__img`)
+              div(class= `${className}__desc`)
+                div(class= `${className}__date`)
+                  p 22-08-2015
+                div(class= `${className}__text`)
+                  p src/index.pug Module build failed :SyntaxError: Unexpected token (65:21)at Parser.pp$4.raise (C:\Users\Мы\Desktop\Тестовое задание HTML 
+                button(class= `${className}__button button`) подробнее
+
+mixin button(className)
+  div(class=`${className}__section_btns`)
+    .prev__btn.btn
+      button(type="button").slider__btn.slider_prev__btn <
+    .next__btn.btn
+      button(type="button").slider__btn.slider_next__btn >
